@@ -10,30 +10,40 @@ const PricingPlan = () => {
     {
       title: "Statisk nettside",
       price: { monthly: "$150", yearly: "$1200" },
+      paragraph:
+        "Vår Nettside-pakke gir deg en moderne og profesjonell nettside med skreddersydd design, perfekt for å styrke din online tilstedeværelse. Vi fokuserer på å tilpasse nettsiden etter din bedrifts identitet, slik at du kan skille deg ut i markedet og nå dine mål.",
       features: [
-        "1 user per account",
-        "Unlimited events",
-        "Registration Form",
-        "Email announcements",
-        "Integrate webinars",
-        "Sales using mobile app",
+        "Design og utvikling",
+        "Responsivt design",
+        "Innholdsstyring",
+        "Vedlikehold",
+        "SSL-sertifikat",
+        "Domene og hosting",
+        "Tilpasset alle plattformer",
+        "4-5 sider",
       ],
     },
     {
       title: "Nettbutikk",
       price: { monthly: "$400", yearly: "$3200" },
+      paragraph:
+        "Vår Nettbutikk-pakke gir deg en moderne og effektiv plattform for å selge produkter på nettet. Med tilpassede designmuligheter og enkel administrasjon, får du en nettløsning som både tiltrekker kunder og gjør kjøpsprosessen sømløs. Perfekt for å etablere eller utvide din e-handelsvirksomhet.",
       features: [
-        "Unlimited paid tickets",
-        "Google Analytics integration",
-        "Customizable registration",
-        "500 Email invitations/event",
-        "Event reminders",
-        "Payments with mobile app",
+        "Alt i Nettside-pakken",
+        "E-handelsfunksjonalitet",
+        "Produktadministrasjon",
+        "Ordrehåndtering",
+        "Trygge betalingsmetoder",
+        "Ønskeliste (wishlist)",
+        "Integrasjon med leverandør",
+        "4-5 sider (ekskludert produktsider)",
       ],
     },
     {
       title: "Webapp",
       price: { monthly: "$999", yearly: "$8000" },
+      paragraph:
+        "Vi tilbyr skreddersydde webapplikasjoner for alle typer behov, fra enkle verktøy til komplekse systemer. Våre profesjonelle utviklere jobber tett med deg for å forstå dine spesifikke krav og levere en løsning som passer perfekt. Prisen kan variere basert på prosjektets omfang og kompleksitet. Ta kontakt med våre eksperter for en konsultasjon og for å diskutere dine ønsker.",
       features: [
         "Unlimited account users",
         "Custom domain support",
@@ -53,6 +63,7 @@ const PricingPlan = () => {
       x: 0,
       transition: { duration: 1, ease: "easeInOut" },
     },
+    hover: { scale: 1.05, transition: { duration: 0.3 } }, // Hover effect: scales the card by 5%
   };
 
   return (
@@ -89,6 +100,7 @@ const PricingPlan = () => {
               className="bg-white overflow-hidden shadow-lg rounded-lg p-8"
               initial="hidden"
               whileInView="visible"
+              whileHover="hover" // Hover animation
               variants={cardVariants}
               viewport={{ once: false, amount: 0.5 }}
             >
@@ -98,7 +110,11 @@ const PricingPlan = () => {
                   ? plan.price.monthly
                   : plan.price.yearly}
               </p>
-              <p className="text-gray-500 mb-6">/month</p>
+              <p className="text-gray-500 mb-4">/month</p>
+
+              {/* New Paragraph After Price */}
+              <p className="text-gray-600 mb-6">{plan.paragraph}</p>
+
               <ul className="text-left mb-6 space-y-3">
                 {plan.features.map((feature, i) => (
                   <li key={i}>✔️ {feature}</li>

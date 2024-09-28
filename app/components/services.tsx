@@ -66,32 +66,53 @@ const BusinessExperience = () => {
   };
 
   return (
-    <section className="py-16 bg-white m-4 md:m-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative py-16 bg-white mx-4 md:mx-20 bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/18322763.jpg')", // Replace with your image path
+        backgroundBlendMode: "overlay", // To blend with the white color
+        backgroundColor: "rgba(255, 255, 255, 0.7)", // White background with opacity to fade the image
+      }}
+    >
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-4 sm:px-6 lg:px-8 items-center h-full">
         {/* Left Image */}
         <motion.div
-          className="flex justify-center overflow-hidden"
+          className="flex justify-center items-center h-full md:mt-44"
           initial="hidden"
           whileInView="visible"
           variants={imageVariants}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
-          <Image
-            src="/DSC00532-2.png" // Replace this with your actual image path
-            alt="Business Woman"
-            width={500}
-            height={600}
-            className="rounded-xl object-cover w-full h-auto"
-            priority={true} // Ensure the image loads faster
-          />
+          {/* Gradient Border Wrapper */}
+          <div
+            style={{
+              background:
+                "linear-gradient(90deg, rgb(30, 124, 101) 0%, rgb(48, 170, 140) 61%)",
+              padding: "4px", // Reduced padding for smaller border
+              borderRadius: "12px", // Reduced border-radius for smaller appearance
+            }}
+            className="rounded-lg"
+          >
+            <Image
+              src="/DSC00532.png"
+              alt="Business Woman"
+              width={400}
+              height={490}
+              className="rounded-lg object-cover w-full h-auto"
+              priority={true}
+              quality={100}
+              layout="intrinsic" // Use intrinsic layout
+              style={{ maxHeight: "500px", objectFit: "cover" }}
+            />
+          </div>
         </motion.div>
 
         {/* Right Content */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center h-full">
           <h2 className="text-lg text-[#1e7c65] uppercase mb-2 text-center md:text-left">
             Egenskaper
           </h2>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center md:text-left">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">
             Hvilke tjenester og funksjoner får du?
           </h1>
           <p className="text-gray-600 mb-8 text-center md:text-left">
@@ -101,7 +122,7 @@ const BusinessExperience = () => {
 
           {/* Icon Grid with animation */}
           <motion.div
-            className="grid grid-cols-1 overflow-hidden md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4" // Reduced gap for smaller layout
             initial="hidden"
             whileInView="visible"
             variants={cardVariants}
@@ -112,18 +133,22 @@ const BusinessExperience = () => {
               return (
                 <motion.div
                   key={index}
-                  className={`p-6 rounded-lg overflow-hidden text-center ${
+                  className={`p-4 rounded-lg text-center overflow-hidden ${
+                    // Reduced padding for smaller cards
                     item.highlighted ? "bg-[#1e7c65] text-white" : "bg-gray-100"
                   }`}
                   variants={cardVariants}
                 >
                   <Icon
-                    className={`w-12 h-12 mx-auto mb-4 ${
+                    className={`w-8 h-8 mx-auto mb-4 ${
+                      // Reduced icon size
                       item.highlighted ? "text-white" : "text-[#1e7c65]"
                     }`}
                   />
-                  <p className="font-semibold mt-2">{item.title}</p>
-                  <p className="text-sm mt-1">{item.description}</p>
+                  <p className="font-semibold text-sm mt-2">{item.title}</p>{" "}
+                  {/* Reduced font size */}
+                  <p className="text-xs mt-1">{item.description}</p>{" "}
+                  {/* Reduced font size */}
                 </motion.div>
               );
             })}

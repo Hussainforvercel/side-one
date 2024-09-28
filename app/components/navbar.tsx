@@ -38,18 +38,10 @@ const Navbar: React.FC = () => {
         >
           <li className="my-4 md:my-0">
             <a
-              href="/Om_Oss"
+              href="/"
               className="block text-lg hover:text-[#830e70] whitespace-nowrap"
             >
               Hjem
-            </a>
-          </li>
-          <li className="my-4 md:my-0">
-            <a
-              href="/Om_Oss"
-              className="block text-lg hover:text-[#830e70] whitespace-nowrap"
-            >
-              Om Oss
             </a>
           </li>
           <li className="my-4 md:my-0">
@@ -60,6 +52,15 @@ const Navbar: React.FC = () => {
               Tjenester
             </a>
           </li>
+          <li className="my-4 md:my-0">
+            <a
+              href="/Om_Oss"
+              className="block text-lg hover:text-[#830e70] whitespace-nowrap"
+            >
+              Om Oss
+            </a>
+          </li>
+
           <li className="my-4 md:my-0">
             <a
               href="/Register"

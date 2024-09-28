@@ -36,7 +36,12 @@ const Testimonials = () => {
 
   return (
     <motion.section
-      className="py-16 bg-gray-50 overflow-hidden"
+      className="py-16 bg-gray-50 relative bg-cover bg-center overflow-hidden"
+      style={{
+        backgroundImage: "url('/v915-wit-006-g.jpg')", // Replace with your background image path
+        backgroundBlendMode: "overlay",
+        backgroundColor: "rgba(255, 255, 255, 0.7)", // White overlay with opacity
+      }}
       initial="hidden"
       whileInView="visible"
       variants={containerVariants}

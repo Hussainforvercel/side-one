@@ -61,11 +61,9 @@ const ReviewCard = ({ img }: { img: string }) => {
   return (
     <motion.figure
       className={cn(
-        "relative w-96 h-96 cursor-pointer overflow-hidden rounded-md",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "relative w-96 h-72 cursor-pointer overflow-hidden rounded-md",
+        "border-transparent bg-transparent hover:bg-transparent",
+        "dark:border-transparent dark:bg-transparent dark:hover:bg-transparent"
       )}
       variants={cardVariants}
       initial="hidden"
@@ -73,10 +71,8 @@ const ReviewCard = ({ img }: { img: string }) => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <img
-        className="rounded-md object-cover w-full h-full"
-        width="96"
-        height="72"
-        alt=""
+        className="rounded-md object-contain w-full h-full" // Use object-contain to show full image
+        alt="review"
         src={img}
       />
     </motion.figure>
@@ -91,8 +87,7 @@ export function MarqueeDemo() {
           <ReviewCard key={review.username} img={review.img} />
         ))}
       </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+      {/* Removed the left and right gradients */}
     </div>
   );
 }
